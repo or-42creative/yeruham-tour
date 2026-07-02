@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Yeruham Tour · 13.8.26" />
   <meta property="og:description" content="תפסיקו לחלום על איכות חיים — בואו לראות אותה בעיניים. סיור באוטובוס פתוח + פסטיבל בראשית והופעה של סאבלימינל והצל." />
-  <meta property="og:image" content="assets/media/invitation.jpg" />
+  <meta property="og:image" content="assets/media/yeruham-lake.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +24,8 @@
 
   <!-- ============================ HERO ============================ -->
   <header class="hero" id="top">
-    <div class="hero__sky" aria-hidden="true"></div>
-    <div class="hero__dunes" aria-hidden="true"></div>
+    <img src="assets/media/yeruham-lake.jpg" alt="נוף אווירי של אגם ירוחם והמדבר" class="hero__bg" fetchpriority="high" />
+    <div class="hero__scrim" aria-hidden="true"></div>
 
     <nav class="topbar">
       <div class="brand">
@@ -35,42 +35,36 @@
       <a href="#register" class="topbar__cta">הרשמה »</a>
     </nav>
 
-    <div class="hero__grid wrap">
-      <div class="hero__copy">
-        <div class="hero__date">
-          <span class="hero__date-num">13.8.26</span>
-          <span class="hero__date-sub">נפגשים ב-16:00 · בית המייסדים</span>
-        </div>
-        <h1 class="hero__title">
-          זוגות צעירים,<br />
-          תפסיקו <em>לחלום</em> על איכות חיים —<br />
-          בואו לראות אותה <span class="hl">בעיניים!</span>
-        </h1>
-        <p class="hero__sub">
-          מחפשים קהילה חמה, חינוך ברמה גבוהה ובית שישאיר לכם עודף בבנק?
-          ב-13.8 אנחנו לוקחים אתכם לסיור באוטובוס פתוח בין מוקדי החיים של ירוחם —
-          ומסיימים בהופעה של <strong>סאבלימינל והצל</strong>.
-        </p>
-        <p class="hero__distance">
-          <span>🕐 שעה ורבע מתל אביב</span>
-          <span>🚗 20 דקות מבאר שבע</span>
-          <span>📍 קרוב בהרבה ממה שדמיינתם</span>
-        </p>
-        <div class="hero__actions">
-          <a href="#register" class="btn btn--primary btn--xl" data-cta="hero-primary">תרשמו אותי דחוף</a>
-          <a href="#about" class="btn btn--ghost" data-cta="hero-secondary">ספרו לי על העיר</a>
-        </div>
-        <div class="countdown" id="countdown" aria-label="ספירה לאחור לאירוע">
-          <div class="countdown__item"><b data-cd="days">--</b><span>ימים</span></div>
-          <div class="countdown__item"><b data-cd="hours">--</b><span>שעות</span></div>
-          <div class="countdown__item"><b data-cd="mins">--</b><span>דקות</span></div>
-          <div class="countdown__item"><b data-cd="secs">--</b><span>שניות</span></div>
-        </div>
+    <div class="hero__inner wrap">
+      <span class="badge hero__badge">מספר המקומות מוגבל!</span>
+      <div class="hero__date">
+        <span class="hero__date-num">13.8.26</span>
+        <span class="hero__date-sub">נפגשים ב-16:00 · בית המייסדים</span>
       </div>
-
-      <div class="hero__art">
-        <img src="assets/media/invitation.jpg" alt="הזמנה לסיור Yeruham Tour ב-13.8.26" class="hero__invite" width="1080" height="1920" />
-        <span class="badge badge--float">מספר המקומות מוגבל!</span>
+      <h1 class="hero__title">
+        זוגות צעירים,<br />
+        תפסיקו <em>לחלום</em> על איכות חיים —<br />
+        בואו לראות אותה <span class="hl">בעיניים!</span>
+      </h1>
+      <p class="hero__sub">
+        מחפשים קהילה חמה, חינוך ברמה גבוהה ובית שישאיר לכם עודף בבנק?
+        ב-13.8 אנחנו לוקחים אתכם לסיור באוטובוס פתוח בין מוקדי החיים של ירוחם —
+        ומסיימים בהופעה של <strong>סאבלימינל והצל</strong>.
+      </p>
+      <p class="hero__distance">
+        <span>🕐 שעה ורבע מתל אביב</span>
+        <span>🚗 20 דקות מבאר שבע</span>
+        <span>📍 קרוב בהרבה ממה שדמיינתם</span>
+      </p>
+      <div class="hero__actions">
+        <a href="#register" class="btn btn--primary btn--xl" data-cta="hero-primary">תרשמו אותי דחוף</a>
+        <a href="#about" class="btn btn--ghost" data-cta="hero-secondary">ספרו לי על העיר</a>
+      </div>
+      <div class="countdown" id="countdown" aria-label="ספירה לאחור לאירוע">
+        <div class="countdown__item"><b data-cd="days">--</b><span>ימים</span></div>
+        <div class="countdown__item"><b data-cd="hours">--</b><span>שעות</span></div>
+        <div class="countdown__item"><b data-cd="mins">--</b><span>דקות</span></div>
+        <div class="countdown__item"><b data-cd="secs">--</b><span>שניות</span></div>
       </div>
     </div>
   </header>
@@ -104,7 +98,7 @@
     <div class="wrap">
       <h2 class="section-title section-title--light">רוצים טעימה? צפו בסיור</h2>
       <div class="videoframe">
-        <video controls preload="none" poster="assets/media/invitation.jpg" playsinline>
+        <video controls preload="none" poster="assets/media/yeruham-lake.jpg" playsinline>
           <source src="assets/media/hero.mp4" type="video/mp4" />
           הדפדפן שלך אינו תומך בהצגת וידאו.
         </video>
