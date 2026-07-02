@@ -112,7 +112,7 @@ strong{font-weight:800}
 .hero__actions .btn--ghost:hover{background:#fff;color:var(--magenta)}
 
 /* ספירה לאחור */
-.countdown{display:flex;gap:.6rem;flex-wrap:wrap}
+.countdown{display:flex;gap:.6rem;flex-wrap:wrap;direction:ltr}
 .countdown__item{
   background:rgba(255,255,255,.9);color:var(--magenta);
   border-radius:14px;padding:.5rem .9rem;text-align:center;min-width:66px;
