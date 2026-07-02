@@ -52,9 +52,17 @@ assets/media/hero.mp4        ← סרטון הסיור
 
 ---
 
-## 2) חיבור הטופס ל-Zapier (Google Sheets + מייל)
+## 2) חיבור הטופס ל-Google Sheets + מייל
 
-הטופס שולח את הנתונים כ-JSON ל-**Webhook** של Zapier. השדות שנשלחים:
+השיטה: **Google Apps Script** — חינם, ללא Zapier. הלידים נכתבים לגיליון Google
+ונשלחת התראה במייל. כל הקוד מוכן ב-[`backend/Code.gs`](backend/Code.gs).
+
+👉 **מדריך פריסה מלא (5 דק'):** [`backend/APPS_SCRIPT_SETUP.md`](backend/APPS_SCRIPT_SETUP.md)
+
+בקצרה: גיליון חדש → Extensions → Apps Script → הדבק את `Code.gs` → Deploy as Web App
+(Access: Anyone) → העתק את ה-`/exec` URL אל `LEAD_WEBHOOK_URL` ב-[`assets/js/config.js`](assets/js/config.js).
+
+השדות שהטופס שולח (כ-JSON):
 
 | שדה | תיאור |
 |------|-------|
@@ -63,31 +71,13 @@ assets/media/hero.mp4        ← סרטון הסיור
 | `email` | מייל |
 | `city` | יישוב מגורים |
 | `intent` | תשובת שאלת הסינון |
-| `qualified` | `true`/`false` — **`false` = בא רק בשביל הפסטיבל** (לסינון אוטומטי) |
+| `qualified` | `true`/`false` — **`false` = בא רק בשביל הפסטיבל** (מסונן: נשמר בגיליון אך לא נשלח עליו מייל) |
 | `consent` | `כן`/`לא` — אישור דיוור |
 | `source`, `page_url`, `submitted_at` | מטא-דאטה |
 
-### הקמת ה-Zap (5 דקות):
-
-1. ב-Zapier → **Create Zap**.
-2. **Trigger:** אפליקציה `Webhooks by Zapier` → אירוע **Catch Hook** → Continue.
-   Zapier ייצור לך **Custom Webhook URL**.
-3. **העתק את ה-URL הזה** אל [`assets/js/config.js`](assets/js/config.js) בשדה
-   `ZAPIER_WEBHOOK_URL`, שמור, והעלה מחדש ל-GitHub. שלח הרשמת בדיקה אחת מהעמוד
-   כדי ש-Zapier "ילמד" את מבנה השדות.
-4. **Action 1 — Google Sheets → Create Spreadsheet Row.** בחר גיליון, ומפה כל
-   עמודה לשדה המתאים (`fullname`, `phone`, `email`, `city`, `intent`, `qualified`, `consent`).
-5. **Filter (מומלץ):** הוסף שלב **Filter by Zapier** — "Only continue if `qualified`
-   **is true**". כך רק לידים אמיתיים ימשיכו לשלב המייל (מי שבא רק לפסטיבל יישמר
-   בגיליון אבל לא יקבל התראת חזרה טלפונית).
-6. **Action 2 — Email/Gmail → Send Email.** נמען = צוות ההרשמות, גוף ההודעה עם
-   פרטי הליד. אפשר להוסיף גם מייל אישור אוטומטי לנרשם (`to: {{email}}`).
-7. **Publish**.
-
-> **לגבי גישה לחשבון שלך:** אני לא יכול להתחבר לחשבון ה-Zapier שלך ולבנות שם את
-> ה-Zap בעצמי (זה דורש את הסיסמה שלך — לא בטוח). אבל זה עניין של 5 דקות לפי המדריך
-> למעלה, ואני זמin ללוות אותך צעד-צעד. כל מה שאני צריך ממך זה את ה-Webhook URL כדי
-> להדביק אותו ב-config ולוודא שהכל זורם.
+> חלופה: אם בעתיד תעדיף Zapier — פשוט הדבק את ה-Catch Hook URL באותו שדה
+> `LEAD_WEBHOOK_URL`. שים לב שב-Zapier חינמי אפשר רק פעולה אחת; Sheets+מייל+פילטר
+> דורשים תוכנית בתשלום — ולכן Apps Script עדיף.
 
 ---
 

@@ -151,7 +151,7 @@
 
       trackEvent("Lead", { content_name: "Yeruham Tour", qualified: payload.qualified });
 
-      var url = CFG.ZAPIER_WEBHOOK_URL;
+      var url = CFG.LEAD_WEBHOOK_URL || CFG.ZAPIER_WEBHOOK_URL;
       if (!url) {
         // מצב הדגמה — אין webhook מוגדר עדיין
         console.warn("[LP] ZAPIER_WEBHOOK_URL ריק — נשלח במצב הדגמה. הנתונים:", payload);
@@ -159,8 +159,8 @@
         return;
       }
 
-      // שליחה ל-Zapier Catch Hook.
-      // מצב no-cors: הבקשה נשלחת ומתקבלת ב-Zapier, אך אין גישה לתשובה — לכן מניחים הצלחה.
+      // שליחה ל-Web App / Webhook.
+      // מצב no-cors: הבקשה נשלחת ומתקבלת בשרת, אך אין גישה לתשובה — לכן מניחים הצלחה.
       fetch(url, {
         method: "POST",
         mode: "no-cors",

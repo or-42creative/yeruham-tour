@@ -2,11 +2,12 @@
    הגדרות עמוד הנחיתה — ערוך כאן בלבד, אין צורך לגעת בקוד אחר.
    ===================================================================== */
 window.LP_CONFIG = {
-  /* כתובת ה-Webhook של Zapier (Catch Hook).
-     כשתיצור את ה-Zap, העתק לכאן את ה-Webhook URL, למשל:
-     "https://hooks.zapier.com/hooks/catch/1234567/abcdefg/"
+  /* כתובת ה-Web App של Google Apps Script (או כל Webhook אחר).
+     אחרי פריסת הסקריפט (ראה backend/APPS_SCRIPT_SETUP.md), העתק לכאן את
+     ה-URL שמסתיים ב-/exec, למשל:
+     "https://script.google.com/macros/s/AKfy.../exec"
      כל עוד השדה ריק — הטופס יעבוד במצב הדגמה ולא ישלח נתונים. */
-  ZAPIER_WEBHOOK_URL: "",
+  LEAD_WEBHOOK_URL: "",
 
   /* Facebook / Meta Pixel ID (מספרים בלבד). השאר ריק עד שנטמיע פיקסל. */
   FB_PIXEL_ID: "",
