@@ -7,7 +7,7 @@ window.LP_CONFIG = {
      ה-URL שמסתיים ב-/exec, למשל:
      "https://script.google.com/macros/s/AKfy.../exec"
      כל עוד השדה ריק — הטופס יעבוד במצב הדגמה ולא ישלח נתונים. */
-  LEAD_WEBHOOK_URL: "",
+  LEAD_WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbxrbPp8oihX0C9Rizlg8vEIkM_v9p9i43Ms4Yzx718XUWw4S-vNZjDyyWSdWuN8mglT/exec",
 
   /* Facebook / Meta Pixel ID (מספרים בלבד). השאר ריק עד שנטמיע פיקסל. */
   FB_PIXEL_ID: "",
