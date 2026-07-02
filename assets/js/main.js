@@ -119,7 +119,7 @@
       city: (data.get("city") || "").trim(),
       intent: data.get("intent") || "",
       // מי שבא רק בשביל הפסטיבל — מסומן לסינון אוטומטי
-      qualified: data.get("intent") !== "בא בשביל הפסטיבל בלבד",
+      qualified: data.get("intent") !== "באים בשביל הפסטיבל בלבד",
       consent: data.get("consent") ? "כן" : "לא",
       source: "landing-page",
       page_url: location.href,
