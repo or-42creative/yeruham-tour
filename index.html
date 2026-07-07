@@ -12,13 +12,16 @@
   <meta property="og:description" content="תפסיקו לחלום על איכות חיים — בואו לראות אותה בעיניים. שני מועדי סיור לבחירה: 10.8 ו-13.8. במועד ה-13.8 גם פסטיבל בראשית והופעה של סאבלימינל והצל." />
   <meta property="og:image" content="assets/media/yeruham-lake.jpg" />
 
+  <link rel="icon" type="image/svg+xml" href="assets/media/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/media/favicon.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 
   <!-- ========= PIXEL / ANALYTICS placeholder — נטען דינמית מ-config.js ========= -->
-  <script src="assets/js/config.js"></script>
+  <script src="assets/js/config.js?v=3"></script>
 </head>
 <body>
 
@@ -48,7 +51,7 @@
       <span class="badge hero__badge">מספר המקומות מוגבל!</span>
       <div class="hero__date">
         <span class="hero__date-num">10.8 · 13.8</span>
-        <span class="hero__date-sub">שני מועדים לבחירה · נפגשים ב-16:00 · בית המייסדים</span>
+        <span class="hero__date-sub">נפגשים ב-16:00 · <a href="https://waze.com/ul?q=%D7%91%D7%99%D7%AA%20%D7%94%D7%9E%D7%99%D7%99%D7%A1%D7%93%D7%99%D7%9D%20%D7%99%D7%A8%D7%95%D7%97%D7%9D&navigate=yes" target="_blank" rel="noopener" class="hero__waze">ווייז: "בית המייסדים ירוחם"</a></span>
       </div>
       <h1 class="hero__title">
         זוגות צעירים,<br />
@@ -88,8 +91,9 @@
       <li class="timeline__item">
         <span class="timeline__time">לסיום</span>
         <div class="timeline__body">
-          <h3>פסטיבל בראשית ברחוב הראשי המתחדש <span class="badge badge--inline">רק ב-13.8</span></h3>
-          <p>דוכני אוכל, מופעי רחוב והופעה חיה של <strong>סאבלימינל והצל</strong> (בסיור ב-13.8 בלבד).</p>
+          <h3>הסיום — לפי המועד שבחרתם</h3>
+          <p class="timeline__date"><span class="badge badge--inline">ב-10.8</span> הפנינג מתנפחי מים ענק ומלא בחוויות לכל המשפחה 💦</p>
+          <p class="timeline__date"><span class="badge badge--inline">ב-13.8</span> פסטיבל מופעי רחוב, דוכני אוכל והופעה של <strong>סאבלימינל והצל</strong> 🎤</p>
         </div>
       </li>
     </ol>
@@ -165,11 +169,11 @@
           <legend>לאיזה מועד סיור תרצו להירשם? <span class="req">*</span></legend>
           <label class="choice">
             <input type="radio" name="tour_date" value="10.8" required />
-            <span>סיור ב-<strong>10.8</strong> · 16:00 · בית המייסדים</span>
+            <span>סיור ב-<strong>10.8</strong> ב-16:00: הפנינג מים 💦</span>
           </label>
           <label class="choice">
             <input type="radio" name="tour_date" value="13.8" />
-            <span>סיור ב-<strong>13.8</strong> · 16:00 · בית המייסדים — כולל פסטיבל בראשית והופעה של סאבלימינל והצל</span>
+            <span>סיור ב-<strong>13.8</strong> ב-16:00: הופעה של סאבלימינל והצל 🎤</span>
           </label>
           <small class="error" data-error-for="tour_date"></small>
         </fieldset>
@@ -251,6 +255,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
