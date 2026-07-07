@@ -126,6 +126,10 @@ strong{font-weight:800}
   font-family:"Rubik",sans-serif;padding:.5em 1.1em;border-radius:999px;font-size:.95rem;
   box-shadow:var(--shadow);
 }
+.badge--inline{
+  font-size:.7rem;padding:.25em .7em;vertical-align:middle;margin-inline-start:.4em;
+  box-shadow:none;background:var(--sky-deep);
+}
 
 /* ============================ כותרות ============================ */
 .section-title{
@@ -152,6 +156,7 @@ strong{font-weight:800}
 }
 .timeline__body h3{font-family:"Rubik",sans-serif;color:var(--ink);margin-bottom:.3rem;font-size:1.15rem}
 .timeline__body p{color:var(--muted)}
+.schedule__dates{text-align:center;color:var(--muted);max-width:640px;margin:-0.6rem auto 1.8rem}
 .schedule__cta{text-align:center;margin-top:1.5rem}
 
 /* ============================ וידאו ============================ */

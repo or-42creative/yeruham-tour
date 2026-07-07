@@ -84,6 +84,9 @@
     var ok = true;
     var data = new FormData(form);
 
+    if (!data.get("tour_date")) { showError("tour_date", "נא לבחור מועד סיור"); ok = false; }
+    else showError("tour_date", "");
+
     var fullname = (data.get("fullname") || "").trim();
     if (fullname.length < 2) { showError("fullname", "נא למלא שם מלא"); ok = false; }
     else showError("fullname", "");
@@ -113,6 +116,7 @@
     var data = new FormData(form);
     var phoneRaw = (data.get("phone") || "").replace(/[\s\-()]/g, "");
     return {
+      tour_date: data.get("tour_date") || "",
       fullname: (data.get("fullname") || "").trim(),
       phone: phoneRaw,
       email: (data.get("email") || "").trim(),
