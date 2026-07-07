@@ -23,7 +23,7 @@ body{
   background:var(--cream);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 .wrap{width:min(1120px,92%);margin-inline:auto}
 img{max-width:100%;display:block}
@@ -55,18 +55,22 @@ strong{font-weight:800}
 .btn--sm{font-size:.95rem;padding:.6em 1.3em}
 .btn--block{width:100%}
 
-/* ============================ Topbar ============================ */
-.topbar{
-  position:relative;z-index:5;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.1rem clamp(1rem,4vw,3rem);
+/* ============================ הדר קבוע ============================ */
+.siteheader{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(135deg,var(--magenta),var(--magenta-bright));
+  box-shadow:0 6px 22px -10px rgba(0,0,0,.55);
 }
-.brand{display:flex;align-items:baseline;gap:.35rem;color:#fff}
-.brand__logo{font-family:"Rubik",sans-serif;font-weight:900;font-size:1.9rem;letter-spacing:.5px}
-.brand__tour{font-family:"Rubik",sans-serif;font-weight:700;font-size:1.4rem;color:var(--turq);transform:rotate(-4deg)}
-.topbar__cta{
+.siteheader__inner{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.55rem 0;
+}
+.brand{display:flex;align-items:baseline;gap:.35rem;color:#fff;flex:0 0 auto}
+.brand__logo{font-family:"Rubik",sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:.5px}
+.brand__tour{font-family:"Rubik",sans-serif;font-weight:700;font-size:1.2rem;color:#FFE24B;transform:rotate(-4deg)}
+.siteheader__cta{
   background:#fff;color:var(--magenta);font-weight:800;font-family:"Rubik",sans-serif;
-  padding:.5em 1.2em;border-radius:999px;font-size:.95rem;
+  padding:.5em 1.2em;border-radius:999px;font-size:.95rem;flex:0 0 auto;white-space:nowrap;
 }
 
 /* ============================ HERO ============================ */
@@ -92,7 +96,7 @@ strong{font-weight:800}
   font-family:"Rubik",sans-serif;font-weight:900;font-size:clamp(2.6rem,7vw,4.4rem);
   color:#fff;line-height:1;text-shadow:0 6px 20px rgba(0,0,0,.25);
 }
-.hero__date-sub{font-weight:700;font-size:1.05rem;color:#fff;opacity:.95;margin-top:.4rem}
+.hero__date-sub{font-weight:800;font-size:1.05rem;color:#fff;margin-top:.4rem;text-shadow:0 2px 10px rgba(0,0,0,.75),0 1px 2px rgba(0,0,0,.6)}
 .hero__title{
   font-family:"Rubik",sans-serif;font-weight:900;
   font-size:clamp(1.7rem,4.4vw,3rem);line-height:1.15;
@@ -111,15 +115,14 @@ strong{font-weight:800}
 .hero__actions .btn--ghost{color:#fff;border-color:#fff}
 .hero__actions .btn--ghost:hover{background:#fff;color:var(--magenta)}
 
-/* ספירה לאחור */
-.countdown{display:flex;gap:.6rem;flex-wrap:wrap;direction:ltr}
+/* ספירה לאחור (בהדר הקבוע) */
+.countdown{display:flex;gap:.4rem;direction:ltr;flex:0 1 auto}
 .countdown__item{
-  background:rgba(255,255,255,.9);color:var(--magenta);
-  border-radius:14px;padding:.5rem .9rem;text-align:center;min-width:66px;
-  box-shadow:var(--shadow);
+  background:rgba(255,255,255,.16);color:#fff;
+  border-radius:10px;padding:.25rem .55rem;text-align:center;min-width:46px;
 }
-.countdown__item b{display:block;font-family:"Rubik",sans-serif;font-size:1.7rem;line-height:1}
-.countdown__item span{font-size:.78rem;color:var(--muted);font-weight:700}
+.countdown__item b{display:block;font-family:"Rubik",sans-serif;font-size:1.2rem;line-height:1.15}
+.countdown__item span{font-size:.62rem;color:#fff;opacity:.85;font-weight:700}
 
 .badge{
   display:inline-block;background:var(--magenta);color:#fff;font-weight:800;
@@ -259,6 +262,12 @@ fieldset legend{margin-bottom:.5rem}
   .cards{grid-template-columns:1fr}
   .lead-form{grid-template-columns:1fr}
   .floating-cta{display:block}
-  .topbar__cta{display:none}
+  .siteheader__cta{display:none}
+  .siteheader__inner{justify-content:space-between;gap:.6rem}
+  .countdown{gap:.3rem}
+  .countdown__item{min-width:40px;padding:.22rem .4rem}
+  .countdown__item b{font-size:1.05rem}
+  .brand__logo{font-size:1.35rem}
+  .brand__tour{font-size:1.05rem}
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none!important}}

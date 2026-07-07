@@ -22,18 +22,27 @@
 </head>
 <body>
 
-  <!-- ============================ HERO ============================ -->
-  <header class="hero" id="top">
-    <img src="assets/media/yeruham-lake.jpg" alt="נוף אגם ירוחם, השכונות והמדבר" class="hero__bg" fetchpriority="high" />
-    <div class="hero__scrim" aria-hidden="true"></div>
-
-    <nav class="topbar">
-      <div class="brand">
+  <!-- ===== הדר קבוע עם ספירה לאחור (מלווה לכל אורך העמוד) ===== -->
+  <header class="siteheader" id="siteheader">
+    <div class="siteheader__inner wrap">
+      <a href="#top" class="brand">
         <span class="brand__logo">ירוחם</span>
         <span class="brand__tour">Tour</span>
+      </a>
+      <div class="countdown" id="countdown" aria-label="ספירה לאחור לאירוע">
+        <div class="countdown__item"><b data-cd="days">--</b><span>ימים</span></div>
+        <div class="countdown__item"><b data-cd="hours">--</b><span>שעות</span></div>
+        <div class="countdown__item"><b data-cd="mins">--</b><span>דקות</span></div>
+        <div class="countdown__item"><b data-cd="secs">--</b><span>שניות</span></div>
       </div>
-      <a href="#register" class="topbar__cta">הרשמה »</a>
-    </nav>
+      <a href="#register" class="siteheader__cta">הרשמה »</a>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="top">
+    <img src="assets/media/yeruham-lake.jpg" alt="נוף אגם ירוחם, השכונות והמדבר" class="hero__bg" fetchpriority="high" />
+    <div class="hero__scrim" aria-hidden="true"></div>
 
     <div class="hero__inner wrap">
       <span class="badge hero__badge">מספר המקומות מוגבל!</span>
@@ -43,37 +52,31 @@
       </div>
       <h1 class="hero__title">
         זוגות צעירים,<br />
-        תפסיקו <em>לחלום</em> על איכות חיים —<br />
-        בואו לראות אותה <span class="hl">בעיניים!</span>
+        תפסיקו <em>לחלום</em> על איכות חיים<br />
+        ובואו לראות אותה <span class="hl">בעיניים!</span>
       </h1>
       <p class="hero__sub">
         מחפשים קהילה חמה, חינוך ברמה גבוהה ובית שישאיר לכם עודף בבנק?
-        בחרו מועד — <strong>10.8</strong> או <strong>13.8</strong> — ואנחנו לוקחים אתכם
+        רק תבחרו מתי (<strong>10.8</strong> או <strong>13.8</strong>) — ואנחנו לוקחים אתכם
         לסיור באוטובוס פתוח בין מוקדי החיים של ירוחם.
-        במועד ה-13.8 גם נחגוג בפסטיבל בראשית עם הופעה של <strong>סאבלימינל והצל</strong>.
+        וב-13.8 נסיים את הסיור בפסטיבל בראשית עם הופעה של <strong>סאבלימינל והצל</strong>.
       </p>
       <p class="hero__distance">
         <span>🕐 שעה ורבע מתל אביב</span>
         <span>🚗 20 דקות מבאר שבע</span>
-        <span>📍 קרוב בהרבה ממה שדמיינתם</span>
+        <span>📍 קרוב יותר ממה שדמיינתם</span>
       </p>
       <div class="hero__actions">
         <a href="#register" class="btn btn--primary btn--xl" data-cta="hero-primary">תרשמו אותי דחוף</a>
         <a href="#about" class="btn btn--ghost" data-cta="hero-secondary">ספרו לי על העיר</a>
       </div>
-      <div class="countdown" id="countdown" aria-label="ספירה לאחור לאירוע">
-        <div class="countdown__item"><b data-cd="days">--</b><span>ימים</span></div>
-        <div class="countdown__item"><b data-cd="hours">--</b><span>שעות</span></div>
-        <div class="countdown__item"><b data-cd="mins">--</b><span>דקות</span></div>
-        <div class="countdown__item"><b data-cd="secs">--</b><span>שניות</span></div>
-      </div>
     </div>
-  </header>
+  </section>
 
   <!-- ============================ לו״ז ============================ -->
   <section class="schedule wrap" id="schedule">
-    <h2 class="section-title">אז מה הלו״ז בסיור?</h2>
-    <p class="schedule__dates">הסיור יוצא בשני מועדים לבחירה: <strong>10.8</strong> ו-<strong>13.8</strong>. בחרו את המועד הנוח לכם בטופס ההרשמה.</p>
+    <h2 class="section-title">אז מה מחכה לכם בסיור?</h2>
+    <p class="schedule__dates">הסיור יתקיים ב-2 מועדים לבחירתכם: <strong>10.8</strong> ו-<strong>13.8</strong>. ציינו את התאריך הנוח לכם בטופס ההרשמה.</p>
     <ol class="timeline">
       <li class="timeline__item">
         <span class="timeline__time">16:00</span>
@@ -83,10 +86,10 @@
         </div>
       </li>
       <li class="timeline__item">
-        <span class="timeline__time">בהמשך</span>
+        <span class="timeline__time">לסיום</span>
         <div class="timeline__body">
           <h3>פסטיבל בראשית ברחוב הראשי המתחדש <span class="badge badge--inline">רק ב-13.8</span></h3>
-          <p>דוכני אוכל, מופעי רחוב, קצב מדברי — והופעה חיה של <strong>סאבלימינל והצל</strong>! (במועד ה-13.8 בלבד)</p>
+          <p>דוכני אוכל, מופעי רחוב והופעה חיה של <strong>סאבלימינל והצל</strong> (בסיור ב-13.8 בלבד).</p>
         </div>
       </li>
     </ol>
@@ -98,7 +101,7 @@
   <!-- ============================ וידאו ============================ -->
   <section class="videoblock" id="video">
     <div class="wrap">
-      <h2 class="section-title section-title--light">חולמים על איכות חיים? צפו בסרטון</h2>
+      <h2 class="section-title section-title--light">איך יראו החיים שלכם פה? צפו בסרטון</h2>
       <div class="videoframe">
         <video controls preload="none" poster="assets/media/yeruham-lake.jpg" playsinline>
           <source src="assets/media/hero.mp4" type="video/mp4" />
@@ -120,11 +123,11 @@
       <article class="card">
         <span class="card__icon">💰</span>
         <h3>הטבת מס של 18%</h3>
-        <p>כסף נקי שנשאר לכם בנטו של המשכורת בכל חודש!</p>
+        <p>כסף נקי שנשאר לכם בנטו כל חודש.</p>
       </article>
       <article class="card">
         <span class="card__icon">🏡</span>
-        <h3>נדל״ן בהזדמנות</h3>
+        <h3>מחירי דיור נוחים</h3>
         <p>וילות עם בריכה באזור 2 מיליון ש״ח. כן, קראתם נכון.</p>
       </article>
       <article class="card">
