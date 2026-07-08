@@ -176,7 +176,7 @@ strong{font-weight:800}
   max-width:820px;margin-inline:auto;border-radius:var(--radius);overflow:hidden;
   box-shadow:var(--shadow);border:5px solid #fff;background:#000;
 }
-.videoframe video{width:100%;display:block;aspect-ratio:9/16;max-height:78vh;object-fit:cover;margin-inline:auto}
+.videoframe video{width:100%;display:block;aspect-ratio:16/9;max-height:78vh;object-fit:contain;background:#000;margin-inline:auto}
 
 /* ============================ למה ירוחם ============================ */
 .about{padding:3.5rem 0}
