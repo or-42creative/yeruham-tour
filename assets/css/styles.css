@@ -63,7 +63,7 @@ strong{font-weight:800}
 }
 .siteheader__inner{
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:.55rem 0;
+  padding:.7rem 0;
 }
 .brand{display:flex;align-items:baseline;gap:.35rem;color:#fff;flex:0 0 auto}
 .brand__logo{font-family:"Rubik",sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:.5px}
@@ -117,18 +117,19 @@ strong{font-weight:800}
 }
 .hero__distance{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;margin:1.2rem 0;font-weight:700;font-size:.98rem}
 .hero__distance span{background:rgba(255,255,255,.22);padding:.4em .9em;border-radius:999px}
-.hero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:1.4rem}
+.hero__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:1.6rem;width:100%;margin-top:2.2rem;margin-bottom:1.4rem}
 .hero__actions .btn--ghost{color:#fff;border-color:#fff}
 .hero__actions .btn--ghost:hover{background:#fff;color:var(--magenta)}
 
 /* ספירה לאחור (בהדר הקבוע) */
-.countdown{display:flex;gap:.4rem;direction:ltr;flex:0 1 auto}
+.countdown{display:flex;gap:.45rem;direction:ltr;flex:0 1 auto}
 .countdown__item{
-  background:rgba(255,255,255,.16);color:#fff;
-  border-radius:10px;padding:.25rem .55rem;text-align:center;min-width:46px;
+  background:rgba(255,255,255,.15);color:#fff;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:12px;padding:.3rem .62rem;text-align:center;min-width:48px;
 }
-.countdown__item b{display:block;font-family:"Rubik",sans-serif;font-size:1.2rem;line-height:1.15}
-.countdown__item span{font-size:.62rem;color:#fff;opacity:.85;font-weight:700}
+.countdown__item b{display:block;font-family:"Rubik",sans-serif;font-size:1.25rem;line-height:1.1}
+.countdown__item span{font-size:.62rem;color:#fff;opacity:.88;font-weight:700;letter-spacing:.2px}
 
 .badge{
   display:inline-block;background:var(--magenta);color:#fff;font-weight:800;
@@ -165,8 +166,9 @@ strong{font-weight:800}
 }
 .timeline__body h3{font-family:"Rubik",sans-serif;color:var(--ink);margin-bottom:.3rem;font-size:1.15rem}
 .timeline__body p{color:var(--muted)}
-.timeline__date{margin-top:.55rem;display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
-.timeline__date .badge--inline{margin-inline:0;flex:0 0 auto}
+.timeline__date{margin-top:.6rem;line-height:1.7}
+.timeline__date .badge--inline{margin-inline:0 .55em;vertical-align:middle}
+.timeline__date .emoji{white-space:nowrap}
 .schedule__dates{text-align:center;color:var(--muted);max-width:640px;margin:-0.6rem auto 1.8rem}
 .schedule__cta{text-align:center;margin-top:1.5rem}
 
