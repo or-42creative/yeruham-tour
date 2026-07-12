@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
 
   <!-- ========= PIXEL / ANALYTICS placeholder — נטען דינמית מ-config.js ========= -->
   <script src="assets/js/config.js?v=3"></script>
@@ -77,7 +77,10 @@
       </div>
     </div>
     <div class="hero__media">
-      <img src="assets/media/yeruham-lake.jpg?v=2" alt="נוף אגם ירוחם והמדבר" class="hero__img" fetchpriority="high" />
+      <video class="hero__video" autoplay muted loop playsinline controls preload="auto" poster="assets/media/yeruham-lake.jpg?v=2">
+        <source src="assets/media/hero-web.mp4?v=1" type="video/mp4" />
+        הדפדפן שלך אינו תומך בהצגת וידאו.
+      </video>
     </div>
   </section>
 
@@ -104,19 +107,6 @@
     </ol>
     <div class="schedule__cta">
       <a href="#register" class="btn btn--primary btn--xl" data-cta="schedule">אני רוצה להירשם לסיור!</a>
-    </div>
-  </section>
-
-  <!-- ============================ וידאו ============================ -->
-  <section class="videoblock" id="video">
-    <div class="wrap">
-      <h2 class="section-title section-title--light">איך יראו החיים שלכם פה? צפו בסרטון</h2>
-      <div class="videoframe">
-        <video controls preload="none" poster="assets/media/yeruham-lake.jpg" playsinline>
-          <source src="assets/media/hero.mp4?v=2" type="video/mp4" />
-          הדפדפן שלך אינו תומך בהצגת וידאו.
-        </video>
-      </div>
     </div>
   </section>
 
