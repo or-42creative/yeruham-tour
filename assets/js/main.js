@@ -131,11 +131,12 @@
     };
   }
 
+  var _leadFired = false;
   function showThankYou() {
     var ty = document.getElementById("thankyou");
     if (ty) ty.hidden = false;
-    // אירוע Lead נורה כאן — כשמסך התודה עולה (כלומר הרשמה שהושלמה בהצלחה)
-    trackEvent("Lead");
+    // אירוע Lead נורה כאן — כשמסך התודה עולה (הרשמה שהושלמה). נעילה למניעת ירי כפול.
+    if (!_leadFired) { _leadFired = true; trackEvent("Lead"); }
   }
 
   if (form) {
