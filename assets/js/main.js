@@ -134,6 +134,8 @@
   function showThankYou() {
     var ty = document.getElementById("thankyou");
     if (ty) ty.hidden = false;
+    // אירוע Lead נורה כאן — כשמסך התודה עולה (כלומר הרשמה שהושלמה בהצלחה)
+    trackEvent("Lead");
   }
 
   if (form) {
@@ -152,8 +154,6 @@
       var payload = collect();
       submitBtn.disabled = true;
       submitBtn.textContent = "שולח...";
-
-      trackEvent("Lead", { content_name: "Yeruham Tour", qualified: payload.qualified });
 
       var url = CFG.LEAD_WEBHOOK_URL || CFG.ZAPIER_WEBHOOK_URL;
       if (!url) {
