@@ -52,10 +52,10 @@ assets/media/hero.mp4        ← סרטון הסיור
 
 ---
 
-## 2) חיבור הטופס ל-Google Sheets + מייל
+## 2) חיבור הטופס ל-Google Sheets + Zapier
 
-השיטה: **Google Apps Script** — חינם, ללא Zapier. הלידים נכתבים לגיליון Google
-ונשלחת התראה במייל. כל הקוד מוכן ב-[`backend/Code.gs`](backend/Code.gs).
+השיטה: **Google Apps Script**. הלידים נכתבים לגיליון Google, ואז כל הדאטה מועברת
+כ-JSON ל-**Zapier** (משם מנהלים מיילים/אוטומציות). כל הקוד מוכן ב-[`backend/Code.gs`](backend/Code.gs).
 
 👉 **מדריך פריסה מלא (5 דק'):** [`backend/APPS_SCRIPT_SETUP.md`](backend/APPS_SCRIPT_SETUP.md)
 
@@ -70,14 +70,14 @@ assets/media/hero.mp4        ← סרטון הסיור
 | `phone` | טלפון (מנוקה מרווחים/מקפים) |
 | `email` | מייל |
 | `city` | יישוב מגורים |
+| `tour_date` | מועד הסיור המבוקש — `10.8` / `13.8` |
 | `intent` | תשובת שאלת הסינון |
-| `qualified` | `true`/`false` — **`false` = בא רק בשביל הפסטיבל** (מסונן: נשמר בגיליון אך לא נשלח עליו מייל) |
+| `qualified` | `true`/`false` — **`false` = בא רק בשביל הפסטיבל** (מסומן בגיליון בעמודת "ליד רלוונטי") |
 | `consent` | `כן`/`לא` — אישור דיוור |
 | `source`, `page_url`, `submitted_at` | מטא-דאטה |
 
-> חלופה: אם בעתיד תעדיף Zapier — פשוט הדבק את ה-Catch Hook URL באותו שדה
-> `LEAD_WEBHOOK_URL`. שים לב שב-Zapier חינמי אפשר רק פעולה אחת; Sheets+מייל+פילטר
-> דורשים תוכנית בתשלום — ולכן Apps Script עדיף.
+> הסקריפט כותב את השורה לגיליון ואז מפעיל webhook ל-Zapier עם כל הדאטה.
+> את המיילים והאוטומציות מנהלים ב-Zapier (הסקריפט עצמו כבר לא שולח מיילים).
 
 ---
 
