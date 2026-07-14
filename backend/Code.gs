@@ -81,6 +81,16 @@ function doGet() {
   return jsonOut({ ok: true, msg: "Yeruham Tour lead endpoint is live" });
 }
 
+/* ---------- הגדרה חד-פעמית ----------
+   הרץ פונקציה זו מהעורך (Run) כדי להוסיף מיד את עמודת "מועד סיור מבוקש"
+   לגיליון הקיים — בלי לחכות לליד חדש. העמודה נוספת בסוף (מימין לכל השאר). */
+function setupSheet() {
+  var sheet = getSheet();
+  var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  console.log("setupSheet ✓ העמודות בגיליון עכשיו: " + headers.join(" | "));
+  return headers;
+}
+
 /* ---------- עזרים ---------- */
 function parseBody(e) {
   if (e && e.postData && e.postData.contents) {
