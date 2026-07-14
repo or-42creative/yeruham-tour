@@ -31,10 +31,13 @@ function doPost(e) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000); // מונע דריסה כששני לידים מגיעים יחד
   try {
+    console.log("▶ doPost התקבל. גוף הבקשה: " +
+      (e && e.postData && e.postData.contents ? e.postData.contents : "(ריק/חסר)"));
     var data = parseBody(e);
     var qualified = (data.qualified === true || String(data.qualified) === "true");
     var receivedAt = new Date();
     var meta = { receivedAt: receivedAt, qualified: qualified };
+    console.log("• ליד לאחר פענוח: " + JSON.stringify(data));
 
     // כתיבת השורה לפי סדר הכותרות שקיים בפועל בגיליון
     var sheet = getSheet();
@@ -45,9 +48,10 @@ function doPost(e) {
       return Object.prototype.hasOwnProperty.call(valueByHeader, h) ? valueByHeader[h] : "";
     });
     sheet.appendRow(row);
+    console.log("✓ נכתבה שורה לגיליון: " + JSON.stringify(row));
 
     // אחרי כתיבת השורה — העברת כל הדאטה כ-JSON ל-Zapier
-    postToZapier({
+    var outbound = {
       received_at: receivedAt.toISOString(),
       tour_date:   data.tour_date || "",
       fullname:    data.fullname || "",
@@ -60,10 +64,12 @@ function doPost(e) {
       source:      data.source || "",
       page_url:    data.page_url || "",
       submitted_at: data.submitted_at || ""
-    });
+    };
+    var zapCode = postToZapier(outbound);
 
-    return jsonOut({ ok: true });
+    return jsonOut({ ok: true, zapier_status: zapCode });
   } catch (err) {
+    console.error("✗ שגיאה ב-doPost: " + (err && err.stack ? err.stack : err));
     return jsonOut({ ok: false, error: String(err) });
   } finally {
     lock.releaseLock();
@@ -114,17 +120,46 @@ function styleHeader(sheet, n) {
 }
 
 function postToZapier(payload) {
-  if (!ZAPIER_WEBHOOK_URL) return;
+  if (!ZAPIER_WEBHOOK_URL) { console.warn("⚠ אין ZAPIER_WEBHOOK_URL — דילוג על webhook"); return 0; }
   try {
-    UrlFetchApp.fetch(ZAPIER_WEBHOOK_URL, {
+    console.log("→ שולח ל-Zapier: " + JSON.stringify(payload));
+    var res = UrlFetchApp.fetch(ZAPIER_WEBHOOK_URL, {
       method: "post",
       contentType: "application/json",
       payload: JSON.stringify(payload),
       muteHttpExceptions: true
     });
+    var code = res.getResponseCode();
+    console.log("← תשובת Zapier: קוד " + code + " | גוף: " + res.getContentText());
+    return code;
   } catch (err) {
-    // לא מפילים את הבקשה בגלל כשל זמני ב-webhook — הליד כבר נשמר בגיליון
+    // הליד כבר נשמר בגיליון — לא מפילים, אבל כן מתעדים כדי שנראה את הכשל בלוג
+    console.error("✗ שליחת webhook ל-Zapier נכשלה: " + (err && err.stack ? err.stack : err));
+    return -1;
   }
+}
+
+/* ---------- בדיקה ידנית ----------
+   הרץ פונקציה זו מעורך ה-Apps Script (Run) כדי:
+   1. לאשר את הרשאת הבקשות החיצוניות (external_request) — חובה אחרי הוספת UrlFetchApp.
+   2. לוודא שה-webhook מגיע ל-Zapier. בדוק את התוצאה תחת View → Executions / Logs. */
+function testWebhook() {
+  var code = postToZapier({
+    received_at: new Date().toISOString(),
+    tour_date: "10.8",
+    fullname: "בדיקה מהסקריפט",
+    phone: "0500000000",
+    email: "test@example.com",
+    city: "ירוחם",
+    intent: "בדיקה ידנית",
+    qualified: true,
+    consent: "כן",
+    source: "apps-script-test",
+    page_url: "",
+    submitted_at: new Date().toISOString()
+  });
+  console.log("testWebhook → קוד תשובה מ-Zapier: " + code + " (200 = הצליח)");
+  return code;
 }
 
 function jsonOut(obj) {
