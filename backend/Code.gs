@@ -21,6 +21,8 @@ var COLUMNS = [
   { header: "יישוב",           get: function (d)    { return d.city || ""; } },
   { header: "דעה על מגורים",   get: function (d)    { return d.intent || ""; } },
   { header: "ליד רלוונטי",     get: function (d, m) { return m.qualified ? "כן" : "לא — פסטיבל בלבד"; } },
+  { header: "חבר מביא חבר",    get: function (d)    { return d.referral || ""; } },
+  { header: "שם החבר הממליץ",  get: function (d)    { return d.friend_name || ""; } },
   { header: "אישור דיוור",     get: function (d)    { return d.consent || ""; } },
   { header: "מקור",            get: function (d)    { return d.source || ""; } },
   { header: "כתובת עמוד",      get: function (d)    { return d.page_url || ""; } }
@@ -60,6 +62,8 @@ function doPost(e) {
       city:        data.city || "",
       intent:      data.intent || "",
       qualified:   qualified,
+      referral:    data.referral || "",
+      friend_name: data.friend_name || "",
       consent:     data.consent || "",
       source:      data.source || "",
       page_url:    data.page_url || "",

@@ -196,6 +196,13 @@ strong{font-weight:800}
   padding:.6em 1em;border-radius:12px;display:inline-block;opacity:1;
 }
 .form-fineprint{grid-column:1/-1;text-align:center;font-size:.82rem;color:var(--muted);margin:0}
+.referral-banner{
+  background:var(--cream);color:var(--ink);border:2px dashed var(--magenta);
+  border-radius:18px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;text-align:center;
+  box-shadow:var(--shadow);
+}
+.referral-banner h3{font-family:"Rubik",sans-serif;color:var(--magenta);font-size:1.3rem;margin-bottom:.3rem}
+.referral-banner p{color:var(--muted);font-size:1rem;margin:0}
 .lead-form{
   background:#fff;color:var(--ink);border-radius:26px;padding:clamp(1.4rem,4vw,2.4rem);
   box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;

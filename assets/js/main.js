@@ -73,6 +73,28 @@
   var note = document.getElementById("formNote");
   var submitBtn = document.getElementById("submitBtn");
 
+  /* "חבר מביא חבר" — הצגת שדה שם החבר רק כשמסמנים "כן" */
+  (function referralToggle() {
+    if (!form) return;
+    var friendField = document.getElementById("friendField");
+    if (!friendField) return;
+    function sync() {
+      var chosen = form.querySelector('input[name="referral"]:checked');
+      var yes = chosen && chosen.value === "כן";
+      friendField.hidden = !yes;
+      if (!yes) {
+        var fn = friendField.querySelector('[name="friend_name"]');
+        if (fn) { fn.value = ""; fn.classList.remove("invalid"); }
+        var err = friendField.querySelector('[data-error-for="friend_name"]');
+        if (err) err.textContent = "";
+      }
+    }
+    form.querySelectorAll('input[name="referral"]').forEach(function (r) {
+      r.addEventListener("change", sync);
+    });
+    sync();
+  })();
+
   function showError(name, msg) {
     var el = form.querySelector('[data-error-for="' + name + '"]');
     if (el) el.textContent = msg || "";
@@ -109,6 +131,15 @@
     if (!data.get("intent")) { showError("intent", "נא לבחור אפשרות אחת"); ok = false; }
     else showError("intent", "");
 
+    // "חבר מביא חבר" — אם סימנו "כן", שם החבר חובה
+    if (data.get("referral") === "כן") {
+      var friend = (data.get("friend_name") || "").trim();
+      if (friend.length < 2) { showError("friend_name", "נא לכתוב את שם החבר/ה"); ok = false; }
+      else showError("friend_name", "");
+    } else {
+      showError("friend_name", "");
+    }
+
     return ok;
   }
 
@@ -124,6 +155,8 @@
       intent: data.get("intent") || "",
       // מי שבא רק בשביל הפסטיבל — מסומן לסינון אוטומטי
       qualified: data.get("intent") !== "באים בשביל הפסטיבל בלבד",
+      referral: data.get("referral") || "",
+      friend_name: (data.get("referral") === "כן") ? (data.get("friend_name") || "").trim() : "",
       consent: data.get("consent") ? "כן" : "לא",
       source: "landing-page",
       page_url: location.href,

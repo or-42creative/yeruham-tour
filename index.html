@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
 
   <!-- ========= PIXEL / ANALYTICS placeholder — נטען דינמית מ-config.js ========= -->
   <script src="assets/js/config.js?v=8"></script>
@@ -160,6 +160,11 @@
         <p class="register__disclaimer">שימו לב: מילוי הטופס <strong>אינו מבטיח מקום באוטובוס</strong>. לאחר ההרשמה נציג שלנו יחזור אליכם לגבי מקום סופי.</p>
       </div>
 
+      <div class="referral-banner">
+        <h3>👥 חבר מביא חבר</h3>
+        <p>יש לכם חברים שרוצים לעבור יחד איתכם? תביאו אותם לסיור וקבלו <strong>שובר מתנה</strong>!</p>
+      </div>
+
       <form class="lead-form" id="leadForm" novalidate>
         <fieldset class="field field--full">
           <legend>לאיזה מועד סיור תרצו להירשם? <span class="req">*</span></legend>
@@ -215,6 +220,24 @@
           <small class="error" data-error-for="intent"></small>
         </fieldset>
 
+        <fieldset class="field field--full">
+          <legend>הגעת דרך חבר מביא חבר?</legend>
+          <label class="choice">
+            <input type="radio" name="referral" value="כן" />
+            <span>כן, חבר/ה הזמין/ה אותנו</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="referral" value="לא" />
+            <span>לא</span>
+          </label>
+        </fieldset>
+
+        <div class="field field--full" id="friendField" hidden>
+          <label for="friend_name">מי החבר/ה שהזמין/ה אתכם? <span class="req">*</span></label>
+          <input type="text" id="friend_name" name="friend_name" autocomplete="off" placeholder="שם פרטי ושם משפחה" />
+          <small class="error" data-error-for="friend_name"></small>
+        </div>
+
         <label class="choice choice--consent field--full">
           <input type="checkbox" name="consent" value="כן" />
           <span>מאשר/ת קבלת עדכונים, דיוור ופרטים על פרויקטים בירוחם.</span>
@@ -253,6 +276,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/main.js?v=10"></script>
 </body>
 </html>
