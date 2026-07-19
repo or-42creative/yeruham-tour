@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <!-- ========= PIXEL / ANALYTICS placeholder — נטען דינמית מ-config.js ========= -->
   <script src="assets/js/config.js?v=8"></script>
@@ -220,16 +220,18 @@
           <small class="error" data-error-for="intent"></small>
         </fieldset>
 
-        <fieldset class="field field--full">
+        <fieldset class="field field--full field--secondary">
           <legend>הגעת דרך חבר מביא חבר?</legend>
-          <label class="choice">
-            <input type="radio" name="referral" value="כן" />
-            <span>כן, חבר/ה הזמין/ה אותנו</span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="referral" value="לא" />
-            <span>לא</span>
-          </label>
+          <div class="choice-row">
+            <label class="choice">
+              <input type="radio" name="referral" value="כן" />
+              <span>כן</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="referral" value="לא" />
+              <span>לא</span>
+            </label>
+          </div>
         </fieldset>
 
         <div class="field field--full" id="friendField" hidden>

@@ -208,7 +208,12 @@ strong{font-weight:800}
   box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;
 }
 .field{display:flex;flex-direction:column;gap:.35rem}
+.field[hidden]{display:none}
 .field--full,.lead-form>.btn,.form-note{grid-column:1/-1}
+/* שאלת "חבר מביא חבר" — היררכיה משנית, קטנה ומעודנת יותר */
+.field.field--secondary legend{font-size:.88rem;font-weight:600;color:var(--muted)}
+.field--secondary .choice{font-size:.95rem;padding:.35em .2em}
+.choice-row{display:flex;gap:1.6rem;flex-wrap:wrap}
 .field label,.field legend{font-weight:700;font-size:.98rem}
 .req{color:var(--magenta-bright)}
 .field input[type=text],.field input[type=tel],.field input[type=email]{
